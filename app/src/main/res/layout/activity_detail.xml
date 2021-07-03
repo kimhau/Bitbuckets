@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="details"
+            type="com.kimhau.bitbuckets.model.Bitbucket" />
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/holo_blue_dark">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="32dp"
+            android:descendantFocusability="blocksDescendants">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="12dp"
+                android:paddingVertical="12dp"
+                android:paddingEnd="6dp"
+                android:translationZ="100dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:onBackPressed="@{true}"
+                app:srcCompat="@drawable/abc_vector_test"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/app_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{details.name}"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                android:translationZ="100dp"
+                app:layout_constraintStart_toEndOf="@id/arrow"
+                app:layout_constraintTop_toTopOf="@id/arrow"
+                app:layout_constraintBottom_toBottomOf="@id/arrow"
+                tools:text="bitbuckets"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{`Owner: `+ details.owner.displayName}"
+                android:layout_margin="8dp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/arrow"
+                tools:text="owner: kimhau" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/website_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{`Website: `}"
+                android:layout_margin="8dp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/name"
+                tools:text="Website: " />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/website"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{details.website}"
+                android:layout_margin="8dp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toEndOf="@id/website_label"
+                app:layout_constraintTop_toTopOf="@id/website_label"
+                app:layout_constraintBottom_toBottomOf="@id/website_label"
+                tools:text="https://kimhau.github.io/" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1sp"
+                app:layout_constraintStart_toStartOf="@id/website"
+                app:layout_constraintEnd_toEndOf="@id/website"
+                app:layout_constraintTop_toBottomOf="@id/website"
+                android:background="@color/white" />
+
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/created_on"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{`Created On: `+ details.createdOn}"
+                android:layout_margin="8dp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/website"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{`Description: `+ details.description}"
+                android:layout_margin="8dp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/created_on" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/fork_policy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{`Fork Policy: `+ details.forkPolicy}"
+                android:layout_margin="8dp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/description" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/full_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{`Full Name: `+ details.fullName}"
+                android:layout_margin="8dp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fork_policy" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/has_issues"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{details.hasIssues?`Has issues: true`:`Has issues: false`}"
+                android:layout_margin="8dp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/full_name" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/has_wiki"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{details.hasWiki?`Has wiki: true`:`Has wiki: false`}"
+                android:layout_margin="8dp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/has_issues" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/is_private"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{details.isPrivate?`Is private: true`:`Is private: false`}"
+                android:layout_margin="8dp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/has_wiki" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/language"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{`Language: `+ details.language}"
+                android:layout_margin="8dp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/is_private" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/mainbranch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{`Mainbranch: `+ details.mainbranch.name}"
+                android:layout_margin="8dp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/language" />
+
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/project"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{`Project: `+ details.project.name}"
+                android:layout_margin="8dp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mainbranch" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/scm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{`Scm: `+ details.scm}"
+                android:layout_margin="8dp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/project" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{`Size: `+ details.size + `` }"
+                android:layout_margin="8dp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/scm" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/slug"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{`Slug: `+ details.slug }"
+                android:layout_margin="8dp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/size" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{`Type: `+ details.type }"
+                android:layout_margin="8dp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/slug" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/updated_on"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{`Updated On: `+ details.updatedOn }"
+                android:layout_margin="8dp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/type" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/uuid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{`UUID: `+ details.uuid }"
+                android:layout_margin="8dp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/updated_on" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/workspace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{`Workspace: `+ details.workspace.name }"
+                android:layout_margin="8dp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/uuid" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

@@ -6,18 +6,19 @@ import androidx.recyclerview.widget.RecyclerView
 import com.kimhau.bitbuckets.R
 import com.kimhau.bitbuckets.databinding.ItemBitbucketBinding
 import com.kimhau.bitbuckets.model.Bitbucket
+import com.kimhau.bitbuckets.ui.details.DetailActivity
 import com.skydoves.bindables.BindingListAdapter
 import com.skydoves.bindables.binding
 
 class BitbucketAdapter : BindingListAdapter<Bitbucket, BitbucketAdapter.BitbucketViewHolder>(diffUtil) {
 
-    private var onClickedAt = 0L
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BitbucketViewHolder {
         val binding = parent.binding<ItemBitbucketBinding>(R.layout.item_bitbucket)
         return BitbucketViewHolder(binding).apply {
             binding.root.setOnClickListener {
-
+                if(bindingAdapterPosition >= 0){
+                    DetailActivity.startActivity(it.context, getItem(bindingAdapterPosition))
+                }
             }
         }
     }

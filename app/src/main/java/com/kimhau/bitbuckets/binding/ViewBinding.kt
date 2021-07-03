@@ -3,6 +3,7 @@ package com.kimhau.bitbuckets.binding
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.OnBackPressedDispatcherOwner
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
@@ -56,5 +57,15 @@ object ViewBinding {
         }
     }
 
+    @JvmStatic
+    @BindingAdapter("onBackPressed")
+    fun bindOnBackPressed(view: View, onBackPress: Boolean) {
+        val context = view.context
+        if (onBackPress && context is OnBackPressedDispatcherOwner) {
+            view.setOnClickListener {
+                context.onBackPressedDispatcher.onBackPressed()
+            }
+        }
+    }
 
 }

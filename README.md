@@ -11,3 +11,6 @@ Bitbuckets is a small demo application based on modern Android application tech-
 Also fetching data from the network via repository pattern.
 </p>
 </br>
+
+## Download
+Go to the [Releases](https://github.com/kimhau/Bitbuckets/releases) to download the latest APK.

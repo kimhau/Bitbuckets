@@ -3,7 +3,7 @@ package com.kimhau.bitbuckets.repository
 import androidx.annotation.WorkerThread
 import com.kimhau.bitbuckets.mapper.ErrorResponseMapper
 import com.kimhau.bitbuckets.model.Bitbucket
-import com.kimhau.bitbuckets.network.BitBucketClient
+import com.kimhau.bitbuckets.network.BitbucketClient
 import com.skydoves.sandwich.map
 import com.skydoves.sandwich.onError
 import com.skydoves.sandwich.onException
@@ -18,7 +18,7 @@ import kotlinx.coroutines.flow.onStart
 import javax.inject.Inject
 
 class MainRepository @Inject constructor(
-    private val bitBucketClient: BitBucketClient,
+    private val bitBucketClient: BitbucketClient,
     private val ioDispatcher: CoroutineDispatcher
 ) {
     var next: String? = null;

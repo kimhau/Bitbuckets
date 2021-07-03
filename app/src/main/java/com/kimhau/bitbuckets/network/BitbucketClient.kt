@@ -4,7 +4,7 @@ import com.kimhau.bitbuckets.model.BitBucketResponse
 import com.skydoves.sandwich.ApiResponse
 import javax.inject.Inject
 
-class BitBucketClient @Inject constructor(
+class BitbucketClient @Inject constructor(
     private val bitbucketService: BitbucketService
 ) {
 

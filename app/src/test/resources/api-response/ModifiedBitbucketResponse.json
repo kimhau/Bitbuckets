@@ -1,0 +1,29 @@
+{
+  "pagelen": 10,
+  "values": [
+    {
+      "scm": null,
+      "website": null,
+      "has_wiki": false,
+      "uuid": null,
+      "links": null,
+      "fork_policy": null,
+      "full_name": null,
+      "name": null,
+      "project": null,
+      "language":null,
+      "created_on": null,
+      "mainbranch": null,
+      "workspace": null,
+      "has_issues": false,
+      "owner": null,
+      "updated_on": null,
+      "size": -99999999,
+      "type": null,
+      "slug": null,
+      "is_private": false,
+      "description": null
+    }
+  ],
+  "next": null
+}

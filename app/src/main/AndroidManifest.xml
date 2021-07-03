@@ -15,6 +15,9 @@
         <activity
             android:name=".ui.details.DetailActivity"
             />
+        <activity
+            android:name=".ui.webview.WebviewActivity"
+            />
 
         <activity android:name=".ui.main.MainActivity">
             <intent-filter>

@@ -80,6 +80,7 @@
                 android:text="@{details.website}"
                 android:layout_margin="8dp"
                 android:textColor="@color/white"
+                app:onPressed="@{details.website}"
                 app:layout_constraintStart_toEndOf="@id/website_label"
                 app:layout_constraintTop_toTopOf="@id/website_label"
                 app:layout_constraintBottom_toBottomOf="@id/website_label"

@@ -1,6 +1,7 @@
 package com.kimhau.bitbuckets.binding
 
 import android.view.View
+import android.webkit.WebView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.OnBackPressedDispatcherOwner
@@ -9,6 +10,7 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.google.android.material.card.MaterialCardView
 import com.kimhau.bitbuckets.ui.main.MainViewModel
+import com.kimhau.bitbuckets.ui.webview.WebviewActivity
 import com.skydoves.whatif.whatIfNotNullOrEmpty
 import java.text.SimpleDateFormat
 
@@ -66,6 +68,29 @@ object ViewBinding {
                 context.onBackPressedDispatcher.onBackPressed()
             }
         }
+    }
+
+    @JvmStatic
+    @BindingAdapter("onPressed")
+    fun bindOnPressed(view: View, url:String) {
+        view.setOnClickListener{
+            WebviewActivity.startActivity(view.context, url)
+        }
+    }
+
+
+    @JvmStatic
+    @BindingAdapter("webViewUrl")
+    fun bindWebViewUrl(view: WebView, url:String?) {
+
+        val mWebSettings = view.settings;
+        mWebSettings.javaScriptCanOpenWindowsAutomatically = true; // set js can open a window, such as the window.open (), default is false
+        mWebSettings.javaScriptEnabled = true; // whether to allow JavaSc
+
+        url.whatIfNotNullOrEmpty {
+            view.loadUrl(it)
+        }
+
     }
 
 }

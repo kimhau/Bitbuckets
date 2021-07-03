@@ -37,7 +37,7 @@ data class Bitbucket(
     @Json(name = "scm")
     val scm: String?,
     @Json(name = "size")
-    val size: Int?,
+    val size: Long?,
     @Json(name = "slug")
     val slug: String?,
     @Json(name = "type")
